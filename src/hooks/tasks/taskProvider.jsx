@@ -53,14 +53,14 @@ export const TaskProvider = (props) => {
     const context = {
         states,
         addTask: (name) => {
-            const id = idCounter + 1;
+            console.log('length:' + tasks.length)
+            const id = tasks.length === 0 ? 1 : tasks.length+1;
             const task = {
                 id,
                 name,
+                description: 'This task has no description',
                 state: 'backlog'
             }
-
-            setIdCounter(id);
             setTasks([...tasks, task])
         },
         updateTask: (item) => {
@@ -79,8 +79,15 @@ export const TaskProvider = (props) => {
         getTasksByState: (state) => {
             return tasks.filter(task => task.state === state);
         },
-        getTasksByExcludedState: (state) => {
-            return tasks.filter(task => task.state !== state);
+        getTasksToMove: (state) => {
+            let prevState = undefined;
+            for (let index = 0; index < states.length; index++) {
+                if (states[index].state === state){
+                    prevState = states[index-1].state;
+                    break;
+                }
+            }
+            return tasks.filter(task => task.state === prevState);
         },
         moveTask: (id, state) => {
             const task = findById(id);

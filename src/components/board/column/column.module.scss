@@ -1,10 +1,10 @@
 .column {
-    width: 282px;
+    width: 528px;
     min-height: 210px;
     .header {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
-        font-size: 0.75em;
+        font-size: 18px;
         height: 48px;
         color: #5E6C84;
         text-transform: uppercase;
@@ -22,15 +22,36 @@
         border-bottom-left-radius: 4px;
         .body {
             padding: 0 6px 0 6px;
+            input,
+            select {
+                display: block;
+                border-radius: 4px;
+                border: none;
+                background-color: #ffffff;
+                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+                margin-bottom: 1px;
+                min-height: 35px;
+                padding: 12px;
+                font-size: 18px;
+                margin-top: 8px;
+                width: 100%;
+            }
         }
         .footer {
             padding: 12px 6px;
             .button {
+                font-family: 'Roboto', sans-serif;
+                font-size: 18px;
                 border: 0;
                 background: none;
             }
             .button:hover {
                 font-weight: bold;
+                cursor: pointer;
+            }
+            .button[disabled]:hover {
+                font-weight: normal;
+                cursor: auto;
             }
         }
     }
