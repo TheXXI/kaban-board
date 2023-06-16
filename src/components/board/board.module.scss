@@ -3,5 +3,21 @@
     >*:not(:first-of-type) {
         margin-left: 24px;
     }
-    justify-content: center;
+    justify-content: center; 
+}
+
+@media screen and (max-width: 1200px) {
+    .board {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items:center;
+        >* {
+            margin-top: 12px;
+        }
+
+        >*:not(:first-of-type) {
+            margin-left: 0px;
+        }
+    }
+    
 }

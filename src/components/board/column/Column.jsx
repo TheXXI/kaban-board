@@ -3,6 +3,7 @@ import { Card } from "./card/Card";
 import css from './column.module.scss'
 import {useTasks} from "../../../hooks/tasks/useTasks";
 import {useState} from "react";
+import {useLayout} from "../../../hooks/layout/useLayout";
 
 export const Column = (props) => {
     const [isNewTaskInputShown, setIsNewTaskInputShown] = useState(false);
@@ -11,7 +12,7 @@ export const Column = (props) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState(false);
     const [selectedTaskId, setSelectedTaskId] = useState(undefined);
 
-    
+    //const {mainContentHeight} = useLayout();
 
     const {getTasksByState, getTasksToMove, addTask, moveTask, removeTask } = useTasks();
 
@@ -33,7 +34,7 @@ export const Column = (props) => {
             <div className={css.wrapper}>
                 <div className={css.body}>
                     {hasTasks &&
-                    <Scrollbars autoHeight autoHeightMax={500}>
+                    <Scrollbars autoHeight autoHeightMax={250}>
                         {
                             tasks.map((task) =>
                                 <Card key={task.id} id={task.id} name={task.name} 
