@@ -1,55 +1,60 @@
 .column {
     width: 282px;
-    background: #EBECF0;
-    border-radius: 4px;
     .header {
-
-        font-size: 18px;
-        height: 44px;
-        color: #5E6C84;
-        text-transform: uppercase;
-        padding-left: 12px;
-        display: flex;
-        align-items: center;
-        user-select: none;
-        position: sticky;
-        top: 0;
-        
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      font-size: 18px;
+      height: 44px;
+      color: #5E6C84;
+      text-transform: uppercase;
+      padding-left: 12px;
+      display: flex;
+      align-items: center;
+      user-select: none;
+      position: sticky;
+      top: 0;
+      background-color: #e5e7ea;
     }
+  
     .wrapper {
-        .body {
-            padding: 0 6px 0 6px;
-            input,
-            select {
-                display: block;
-                border-radius: 4px;
-                border: none;
-                background-color: #ffffff;
-                box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-                margin-bottom: 1px;
-                min-height: 35px;
-                padding: 12px;
-                font-size: 18px;
-                margin-top: 8px;
-                width: 100%;
-            }
+      background-color: #F4F5F7;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+  
+      .body {
+        padding: 8px 6px 0 6px;
+        background-color: #F4F5F7;
+
+        input,
+        select {
+            display: block;
+            border-radius: 4px;
+            border: none;
+            background-color: #ffffff;
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+            margin-bottom: 1px;
+            min-height: 35px;
+            padding: 12px;
+            font-size: 18px;
+            width: 100%;
         }
-        .footer {
-            padding: 12px 6px;
-            .button {
-                font-family: 'Roboto', sans-serif;
-                font-size: 18px;
-                border: 0;
-                background: none;
-            }
-            .button:hover {
-                font-weight: bold;
-                cursor: pointer;
-            }
-            .button[disabled]:hover {
-                font-weight: normal;
-                cursor: auto;
-            }
+      }
+      .footer {
+        padding: 12px 6px;
+        .button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            border: 0;
+            background: none;
+        }
+        .button:hover {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .button[disabled]:hover {
+            font-weight: normal;
+            cursor: auto;
         }
     }
+}
 }

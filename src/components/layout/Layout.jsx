@@ -5,11 +5,9 @@ import css from './layout.module.scss'
 export const Layout = (props) => {
     return (
         <TaskProvider>
-            
-                <div className={css.layout}>
-                    {props.children}
-                </div>
-            
+            <LayoutProvider>
+                <div className={css.layout}>{props.children}</div>
+            </LayoutProvider>
         </TaskProvider>
-    );
+    )
 }

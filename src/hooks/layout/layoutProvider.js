@@ -7,9 +7,6 @@ export const LayoutProvider = (props) => {
         {width: window.innerWidth, height: window.innerHeight}
     )
 
-    const [footerHeight, setFooterHeight] = useState(0);
-    const [headerHeight, setHeaderHeight] = useState(0);
-
     useEffect(() => {
         const handleWindowResize = () => {
             setWindowSize(
@@ -24,17 +21,9 @@ export const LayoutProvider = (props) => {
         };
     });
 
-    useEffect(() => {
-        setHeaderHeight(document.getElementsByTagName('header')[0].clientHeight);
-        setFooterHeight(document.getElementsByTagName('footer')[0].clientHeight);
-    }, [])
-
     const context = {
         mainContentHeight: windowSize
-            ? windowSize.height - 48 - 56 - 24 - 24
-              // padding-top, padding-bottom, column header height
-              - 24 - 24 - 48
-            : 0
+            ? windowSize.height - 48 - 56 - 24 - 24 : 0
     }
 
     return <LayoutContext.Provider value={context}>{props.children}</LayoutContext.Provider>

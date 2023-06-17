@@ -12,7 +12,7 @@ export const Column = (props) => {
     const [isNewTaskSelectShown, setIsNewTaskSelectShown] = useState(false);
     const [selectedTaskId, setSelectedTaskId] = useState(undefined);
 
-    //const {mainContentHeight} = useLayout();
+    const {mainContentHeight} = useLayout();
 
     const {getTasksByState, getTasksToMove, addTask, moveTask, removeTask } = useTasks();
 
@@ -22,19 +22,13 @@ export const Column = (props) => {
     const onInputCard = (e) => {
         setInputCardName((e.target.value).trim());
     }
-
-    const tasksToMoveCount = () => {
-        if (props.state === 'backlog') return 0;
-        return getTasksToMove(props.state).length;
-    }
-
     return (
         <div className={css.column}>
             <div className={css.header}>{props.name}</div>
             <div className={css.wrapper}>
                 <div className={css.body}>
                     {hasTasks &&
-                    <Scrollbars autoHeight autoHeightMax={250}>
+                    <Scrollbars autoHeightMax={mainContentHeight} autoHide autoHeight style={{marginBottom:8}}>
                         {
                             tasks.map((task) =>
                                 <Card key={task.id} id={task.id} name={task.name} 
